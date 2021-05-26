@@ -21,7 +21,7 @@ const apiOptions = {
   version: "beta",
   map_ids: [""]
 };
-
+//lat: 51.4855123, lng: -113.1693358
 const mapOptions = {
   "tilt": 0,
   "heading": 0,
@@ -54,13 +54,17 @@ function initWebglOverlayView(map) {
   
     // load the model    
     loader = new GLTFLoader();               
-    const source = "pin.gltf";
+    const source = "HotAirBalloon_01.gltf";
     loader.load(
       source,
       gltf => {      
-        gltf.scene.scale.set(25,25,25);
-        gltf.scene.rotation.x = 180 * Math.PI/180; // rotations are in radians
-        scene.add(gltf.scene);           
+        //gltf.scene.scale.set(,25,25);
+        //gltf.scene.position.y = 200;
+        gltf.scene.rotation.x = 180 * Math.PI/180;
+        gltf.scene.rotation.y = 180 * Math.PI/180;
+        //gltf.scene.rotation.set(-300, 0, 0); 
+        // rotations are in radians
+        scene.add(gltf.scene);                   
       }
     );
   }
@@ -70,8 +74,7 @@ function initWebglOverlayView(map) {
     // maps's WebGL rendering context.
     renderer = new THREE.WebGLRenderer({
       canvas: gl.canvas,
-      context: gl,
-      ...gl.getContextAttributes(),
+      context: gl, ...gl.getContextAttributes(),
     });
     renderer.autoClear = false;
 
