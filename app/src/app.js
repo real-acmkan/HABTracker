@@ -26,8 +26,9 @@ const mapOptions = {
   "tilt": 0,
   "heading": 0,
   "zoom": 18,
-  "center": { lat: 35.6594945, lng: 139.6999859 },
-  "mapId": ""    
+  "center": { lat: 51.4855123, lng: -113.1693358 },
+  "mapId": "",
+  "mapTypeId": "satellite"    
 }
 
 async function initMap() {    
@@ -58,10 +59,25 @@ function initWebglOverlayView(map) {
     loader.load(
       source,
       gltf => {      
-        //gltf.scene.scale.set(,25,25);
-        //gltf.scene.position.y = 200;
-        gltf.scene.rotation.x = 180 * Math.PI/180;
-        gltf.scene.rotation.y = 180 * Math.PI/180;
+        //gltf.scene.scale.set(25,25,25);
+        gltf.scene.position.z = 1000;
+        gltf.scene.rotation.x = 90 * Math.PI / 180;
+        document.onkeydown = function (event) {
+          switch (event.keyCode) {
+             case 37:
+                console.log("Left key is pressed.");
+                break;
+             case 38:
+                console.log("Up key is pressed.");
+                break;
+             case 39:
+                console.log("Right key is pressed.");
+                break;
+             case 40:
+                console.log("Down key is pressed.");
+                break;
+          }
+       };
         //gltf.scene.rotation.set(-300, 0, 0); 
         // rotations are in radians
         scene.add(gltf.scene);                   
@@ -84,7 +100,7 @@ function initWebglOverlayView(map) {
         map.moveCamera({
           "tilt": mapOptions.tilt,
           "heading": mapOptions.heading,
-          "zoom": mapOptions.zoom
+          "zoom": 15
         });            
         
         // rotate the map 360 degrees 
