@@ -62,25 +62,9 @@ function initWebglOverlayView(map) {
         //gltf.scene.scale.set(25,25,25);
         gltf.scene.position.z = 1000;
         gltf.scene.rotation.x = 90 * Math.PI / 180;
-        document.onkeydown = function (event) {
-          switch (event.keyCode) {
-             case 37:
-                console.log("Left key is pressed.");
-                break;
-             case 38:
-                console.log("Up key is pressed.");
-                break;
-             case 39:
-                console.log("Right key is pressed.");
-                break;
-             case 40:
-                console.log("Down key is pressed.");
-                break;
-          }
-       };
         //gltf.scene.rotation.set(-300, 0, 0); 
         // rotations are in radians
-        scene.add(gltf.scene);                   
+        scene.add(gltf.scene);
       }
     );
   }
@@ -114,6 +98,7 @@ function initWebglOverlayView(map) {
       });        
     }
   }
+  
 
   webglOverlayView.onDraw = (gl, coordinateTransformer) => {
     // update camera matrix to ensure the model is georeferenced correctly on the map     
