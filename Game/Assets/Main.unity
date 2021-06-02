@@ -241,24 +241,24 @@ MonoBehaviour:
       DidPaint:
         m_PersistentCalls:
           m_Calls: []
-  EnableModeledStructures: 1
+  EnableModeledStructures: 0
   EnablePrivateRoads: 0
-  EnableTerrain: 0
+  EnableTerrain: 1
   Use32BitMeshIndexBuffers: 0
   ObjectCreationFrameBudget: 0
   StaticBatching: 0
   TerrainOptions:
-    TerrainMeshMetersPerPoint: 1
+    TerrainMeshMetersPerPoint: 2
     AltitudePrecision: 0.01
   EnableIntersections: 0
   EnableExhaustiveIntersectionReconstruction: 1
-  EnableRoadLattice: 0
+  EnableRoadLattice: 1
   MapPreviewOptions:
     Enable: 0
     Location:
-      _Lat: 48.85837
-      _Lng: 2.294481000000019
-    Size: 500
+      _Lat: 51.0443114
+      _Lng: -114.0652801
+    Size: 10
   MetadataOptions:
     Method: 1
     MetadataRegister: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
     MaxDiskBytes: 10485760
     DiskTimeoutSeconds: 0
   CountryProvider: {fileID: 0}
-  LanguageCode: 
+  LanguageCode: CA
   MinBasemapSortingOrder: -32767
   MaxBasemapSortingOrder: -1
   NonBasemapSortingOrder: 0
@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LatLng:
-    _Lat: 40.6892199
-    _Lng: -74.044601
+    _Lat: 51.0455666
+    _Lng: -114.06241499999999
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
