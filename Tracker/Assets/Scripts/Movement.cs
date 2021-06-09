@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 
 public class Movement : MonoBehaviour
 {
     //Vector3 Vec;
     public Rigidbody rb;
     public GameObject path;
+
+    public GameObject go;
 
     private GameObject tempPath;
 
@@ -36,7 +39,7 @@ public class Movement : MonoBehaviour
             rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
         }
         
-        // var worldPosition = Conversions.GeoToWorldPosition(51.485852, -113.146361, new Vector2d(10, 10), (float)2.5).ToVector3xz();
+        // 
         // Vec = transform.localPosition;  
         // Vec.y += Input.GetAxis("Jump") * Time.deltaTime * 20;  
         // if(Input.GetKey(KeyCode.LeftShift)) 
