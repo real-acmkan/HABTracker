@@ -1,6 +1,5 @@
-#!/usr/bin/python3
-
-import time, json
+import time, csv
+from datetime import datetime
 from Phidget22.Phidget import *
 from Phidget22.Devices.GPS import *
 
@@ -12,26 +11,18 @@ def data():
                 alt = ch.getAltitude()
                 lat = ch.getLatitude()
                 lng = ch.getLongitude()
-                t = ch.getTime()
                 v = ch.getVelocity()
                 h = ch.getHeading()
-                with open("data.json","r+") as file:
-                        file_data = json.load(file)
-                        a = int(list(file_data)[-1]) + 1
-                        data = { a : [{ "Altitude":  str(alt),
-                                "Lat": str(lat),
-                                "Long": str(lng),
-                                "Time": str(t),
-                                "Velocity": str(v),
-                                "Heading": str(h)
-                                }]
-                        }
-                        file_data.update(data)
-                        file.seek(0)
-                        json.dump(file_data, file)
+                with open("/root/data.csv","a", encoding="UTF8") as file:
+                        writer = csv.writer(file)
+                        now = datetime.now()
+                        c = now.strftime("%H:%M:%S")
+                        data = [alt, lat, lng, v, h, c]
+                        writer.writerow(data)
+
                 ch.close()
         except Exception as e:
-                with open("error.txt", "a+") as f:
+                with open("/root/error.txt", "a+") as f:
                         f.seek(0)
                         err = f.read(100)
                         if len(err) > 0:
