@@ -233,30 +233,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b749c6d877f4c19a5a5c3c0783d53b, type: 3}
---- !u!1 &507170231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7537804103758761532, guid: 0ce81485c299a4581a7da22ed8a56a5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7231304584950245351}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &507170232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507170231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e649b816c3c4892b9ae057e2f856e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Map: {fileID: 1769305091}
-  LatLng:
-    x: 51.4945958
-    y: -113.1700387
-  height: 4
-  step: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +350,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: Map
+      value: 
+      objectReference: {fileID: 1769305091}
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: step
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7192380862752986246, guid: 0ce81485c299a4581a7da22ed8a56a5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -429,21 +413,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7231304583352264893, guid: 0ce81485c299a4581a7da22ed8a56a5b,
-        type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7231304583352264893, guid: 0ce81485c299a4581a7da22ed8a56a5b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7537804103758761532, guid: 0ce81485c299a4581a7da22ed8a56a5b,
         type: 3}
       propertyPath: m_Name
       value: HotAirBalloon_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7231304583352264893, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}

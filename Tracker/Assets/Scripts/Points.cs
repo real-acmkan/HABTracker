@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Points
 {
-    float altitude, latitude, longitude, velocity, heading;
-    string time;
+    public float altitude; 
+    public float latitude;
+    public float longitude; 
+    public float velocity;
+    public float heading;
+    public string time;
 }
