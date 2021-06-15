@@ -4,7 +4,6 @@ using UnityEngine;
 using Mapbox.Utils;
 using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
-using Mapbox;
 
 public class PathFollower : MonoBehaviour
 {
@@ -13,10 +12,17 @@ public class PathFollower : MonoBehaviour
     [SerializeField] int height;
     [SerializeField] float step;
 
-    private void Update()
-    {
+    void Start() {
+        // https://www.youtube.com/watch?v=mAeTRCT0qZg
+        TextAsset data = Resources.Load<TextAsset>("data");
+        string [] dt = data.text.Split(new char[] { '\n' });
+        for(int i = 1; i < dt.Length; i++) {
+           Points p = new Points();
+        }
+    }
+
+    void Update() {
         Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
-        Debug.Log(Map.WorldRelativeScale);
 
         position.z = height;
         transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
