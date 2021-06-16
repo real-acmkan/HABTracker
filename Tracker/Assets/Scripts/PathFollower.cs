@@ -22,7 +22,6 @@ public class PathFollower : MonoBehaviour
         // https://www.youtube.com/watch?v=mAeTRCT0qZg
         TextAsset data = Resources.Load<TextAsset>("data");
         string[] dt = data.text.Split(new char[] { '\n' });
-        Debug.Log("working here");
         for (int i = 1; i < dt.Length; i++) {
             // atPos = false;
             string[] row = dt[i].Split(new char[] { ',' });
@@ -33,17 +32,18 @@ public class PathFollower : MonoBehaviour
             p.heading = float.Parse(row[4]);
             p.time = row[5];
             points.Add(p);
-            Debug.Log(p.latitude + ", " + p.longitude);
         }
     }
 
     void Update() {
         
-        LatLng.x = p.latitude;
-        LatLng.y = p.longitude;
-        Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
-        position.z = height;
-        transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
+        foreach (Points p in points) {
+            LatLng.x = p.latitude;
+            LatLng.y = p.longitude;
+            Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
+            position.z = height;
+            transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
+        }
 
         
         // if (Vector3.Distance(transform.position, newTarget.position) < 0.1f){
