@@ -194,12 +194,12 @@ PrefabInstance:
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _options.extentOptions.defaultExtents.rangeAroundTransformOptions.visibleBuffer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _options.extentOptions.defaultExtents.rangeAroundTransformOptions.disposeBuffer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
@@ -356,6 +356,10 @@ PrefabInstance:
       objectReference: {fileID: 1769305091}
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: step
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: height
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7192380862752986246, guid: 0ce81485c299a4581a7da22ed8a56a5b,

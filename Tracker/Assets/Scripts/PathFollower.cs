@@ -22,7 +22,7 @@ public class PathFollower : MonoBehaviour
         // https://www.youtube.com/watch?v=mAeTRCT0qZg
         TextAsset data = Resources.Load<TextAsset>("data");
         string[] dt = data.text.Split(new char[] { '\n' });
-        for (int i = 1; i < dt.Length; i++) {
+        for(int i = 1; i < dt.Length; i++) {
             // atPos = false;
             string[] row = dt[i].Split(new char[] { ',' });
             p.altitude = float.Parse(row[0]);
@@ -37,7 +37,7 @@ public class PathFollower : MonoBehaviour
 
     void Update() {
         
-        foreach (Points p in points) {
+        foreach(Points p in points) {
             LatLng.x = p.latitude;
             LatLng.y = p.longitude;
             Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
