@@ -10,9 +10,17 @@ public class PathFollower : MonoBehaviour
     [SerializeField] public List<Points> points = new List<Points>();
     [SerializeField] public AbstractMap Map;
     [SerializeField] public Vector2d LatLng;
+    public Vector2d NewLatLng;
     [SerializeField] int height;
     [SerializeField] float step;
     public int totalPointsAdded;
+    public int counter = 0;
+    public int totalPoints;
+    public bool isRunning = false;
+    bool isAtPoint;
+    [SerializeField] LayerMask pointMask;
+    [SerializeField] Transform pointCheck;
+    public float pointDistance;
     // public bool isMoving;
     
     //float inc = 1.0f;
@@ -58,21 +66,69 @@ public class PathFollower : MonoBehaviour
 
     IEnumerator Placement() {
         float tt = 0.04f;
-        do {
-            foreach(Points p in points) {
-                yield return new WaitForSeconds(tt);
-                LatLng.x = p.latitude;
-                LatLng.y = p.longitude;
-                // Debug.Log(p.latitude + ", " + p.longitude);
-                Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
-                position.z = height;
-                transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
-            }
-        } while (LatLng.x != 52.11719 && LatLng.y != -112.1376);
+        
+            //do {
+                foreach(Points p in points) {
+                    counter++;
+                    //Debug.Log(counter);
+                    
+                    NewLatLng.x = p.latitude;
+                    NewLatLng.y = p.longitude;
+
+                    // create game object at point above
+
+
+                    // Debug.Log(p.latitude + ", " + p.longitude);
+                    Vector3 position = Conversions.GeoToWorldPosition(NewLatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
+                    
+                    
+                    position.z = height;
+                    transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
+                    
+
+
+                    Debug.Log(counter);
+                    Debug.Log(transform.position);
+                    
+
+                    // wait until aboves game object is destroyed
+                    yield return new WaitForSeconds(tt);
+
+                    //continue
+                    
+                    if (counter > points.Count) {
+                        break;
+                    }
+                }
+            //} while (counter <= points.Count);
+        
     }
 
     void Update() {
-        StartCoroutine(Placement());
+        //if (isRunning == false) {
+        //    isRunning = true;
+            //StartCoroutine(Placement());
+            
+                foreach(Points p in points) {
+                    counter++;
+                    //Debug.Log(counter);
+                    NewLatLng.x = p.latitude;
+                    NewLatLng.y = p.longitude;
+                    Vector3 position = Conversions.GeoToWorldPosition(NewLatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
+                    position.z = height;
+                    transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
+                    //Debug.Log(position);
+                    
+                    isAtPoint = Physics.CheckSphere(pointCheck.position, pointDistance, pointMask);
+                    if(isAtPoint) {
+                        //delete 1st point
+                        Debug.Log("We're at the point");
+                        points.Remove(p);
+                    }
+                }
+        //}
+
+        
     }
 
         

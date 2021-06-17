@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &160392719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 650443654, guid: 0ce81485c299a4581a7da22ed8a56a5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7231304584950245351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &426014556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 1769305091}
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: step
-      value: 12
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: height
@@ -365,6 +371,22 @@ PrefabInstance:
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: isMoving
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: pointMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: pointCheck
+      value: 
+      objectReference: {fileID: 160392719}
+    - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: pointDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 650443654, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 458657564420046315, guid: 0ce81485c299a4581a7da22ed8a56a5b,
         type: 3}
