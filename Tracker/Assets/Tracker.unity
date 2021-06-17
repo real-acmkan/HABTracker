@@ -362,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 1769305091}
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: step
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 507170232, guid: 0ce81485c299a4581a7da22ed8a56a5b, type: 3}
       propertyPath: height
