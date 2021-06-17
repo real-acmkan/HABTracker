@@ -13,9 +13,7 @@ public class PathFollower : MonoBehaviour
     [SerializeField] int height;
     [SerializeField] float step;
     public int totalPointsAdded;
-  
-
-    // public bool atPos;
+    // public bool isMoving;
     
     //float inc = 1.0f;
 
@@ -35,7 +33,7 @@ public class PathFollower : MonoBehaviour
             p.heading = float.Parse(row[4]);
             p.time = row[5];
             
-            //Debug.Log(p.altitude); //THIS IS GOOD FOR INDIVIDUAL ENTRY as entity p
+            // Debug.Log(p.latitude); //THIS IS GOOD FOR INDIVIDUAL ENTRY as entity p
 
             points.Add(p); // This is good
             
@@ -55,38 +53,26 @@ public class PathFollower : MonoBehaviour
             //Debug.Log(points[0].altitude);
             //Debug.Log(points[100].altitude);
             //Debug.Log(points[190].altitude);
-
-
-        // TestList();
-
         
     }
 
-    void TestList() {
-
-        for (int j = 0; j <= totalPointsAdded; j++) {
-            //Debug.Log(points[0].altitude);
-            //Debug.Log(points[100].altitude);
-            //Debug.Log(points[190].altitude);
-        }
-
+    IEnumerator Placement() {
+        float tt = 0.04f;
+        do {
+            foreach(Points p in points) {
+                yield return new WaitForSeconds(tt);
+                LatLng.x = p.latitude;
+                LatLng.y = p.longitude;
+                // Debug.Log(p.latitude + ", " + p.longitude);
+                Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
+                position.z = height;
+                transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
+            }
+        } while (LatLng.x != 52.11719 && LatLng.y != -112.1376);
     }
 
     void Update() {
-        
-
-
-        foreach(Points p in points) {
-            // Debug.Log(p);
-            LatLng.x = p.latitude;
-            LatLng.y = p.longitude;
-
-            Debug.Log(p.latitude);
-
-            Vector3 position = Conversions.GeoToWorldPosition(LatLng, Map.CenterMercator, Map.WorldRelativeScale).ToVector3xz();
-            position.z = height;
-            transform.position = Vector3.MoveTowards(transform.position, position, step * Time.deltaTime);
-        }
+        StartCoroutine(Placement());
     }
 
         
